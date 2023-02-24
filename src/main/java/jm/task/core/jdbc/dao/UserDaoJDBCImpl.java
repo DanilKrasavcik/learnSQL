@@ -18,7 +18,7 @@ private Util util;
         try(Statement statement =util.getConnection().createStatement()) {
             
             String query2 ="create table if not exists users (id bigint PRIMARY KEY AUTO_INCREMENT, name varchar(45), lastName varchar(45), age tinyint);";
-            statement.executeQuery(query2);
+            statement.executeUpdate(query2);
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -27,7 +27,7 @@ private Util util;
 
     public void dropUsersTable() {
         try(Statement statement =util.getConnection().createStatement()) {
-            statement.execute("DROP TABLE IF EXISTS users");
+            statement.executeUpdate("DROP TABLE IF EXISTS users");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public void saveUser(String name, String lastName, byte age) {
         long l = id;
         String query2 = String.format("DELETE FROM users WHERE id = %s",id);
         try(Statement statement =util.getConnection().createStatement()) {
-            statement.executeQuery(query2);
+            statement.executeUpdate(query2);
         } catch (SQLException e) {
             e.printStackTrace();
         }

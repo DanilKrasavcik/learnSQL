@@ -15,21 +15,19 @@ private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
 
 private static Connection connection;
 
-public Util() {
-	
 
-	
+private Util() {
+
 }
 
 public static Connection getConnection() {
+	
 	try {
-		
 		connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 		System.out.println("Соединение установлено");
 	} catch (SQLException e) {
 		System.err.println("СОЕДИНЕНИЯ НЕТ");
 		e.printStackTrace();
-		
 	}
 	return connection;
 }
